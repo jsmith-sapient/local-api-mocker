@@ -1,0 +1,19 @@
+{
+  "name": "mock-api-test",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev:http": "http-server ./app -d false -p 3000 -P http://localhost:3001",
+    "start:dev:mock-api": "canned -p 3001 ./app",
+    "start:dev": "concurrently \"npm:start:dev:*\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "canned": "^0.3.12",
+    "concurrently": "^4.1.0",
+    "http-server": "^0.11.1"
+  }
+}

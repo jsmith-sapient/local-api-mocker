@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<form
+			id="test"
+		>
+			<label
+				id="endpoint"
+			>
+				<input
+					id="endpoint-value"
+					type="text"
+				/>
+			</label>
+			<button
+				id="go"
+				type="submit"
+			>Fire!</button>
+		</form>
+
+		<ul id="list"></ul>
+
+		<script src="./app.js"></script>
+		<style type="text/css">
+			html {
+				font-size: 14px;
+				height: 100%;
+				width: 100%;
+			}
+
+			#endpoint {
+				background-color: #e0e0e0;
+				border: 1px solid #aaa;
+				padding: 0.5em;
+			}
+			#endpoint::before {
+				content: '/';
+			}
+
+			#endpoint-value {
+				appearance: none;
+				background: none;
+				border: none;
+				margin: 0;
+				padding: 0;
+			}
+			#endpoint-value:focus {
+				outline: none;
+			}
+
+			#go {
+				appearance: none;
+				background-color: black;
+				color: white;
+				cursor: pointer;
+				font-size: 1.5rem;
+				padding: 0.5em;
+			}
+
+			#list {
+				background-color: #e0e0e0;
+				font-family: monospace;
+				list-style: none;
+				margin: 1em 0;
+				padding: 1em;
+			}
+
+			#list > li {
+				background-color: white;
+				margin: 0.5em;
+				padding: 0.25em;
+			}
+
+			.error {
+				color: red;
+			}
+		</style>
+	</body>
+</html>
