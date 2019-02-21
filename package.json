@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev:http": "webpack-dev-server --content-base ./app --port 3000 --proxy-port 3001",
+    "start:dev:http": "webpack-dev-server --content-base ./app --entry ./app --port 3000 --proxy-target http://localhost:3001",
     "start:dev:mock-api": "canned -p 3001 ./app",
     "start:dev": "concurrently \"npm:start:dev:*\""
   },

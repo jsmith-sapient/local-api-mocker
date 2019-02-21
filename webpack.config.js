@@ -1,22 +1,17 @@
 const yargs = require('yargs')
 	.defaults({
-		proxyPort: 3001,
+		proxyTarget: 'http://localhost:3001',
 	}).argv;
 
 module.exports = {
 	devServer: {
 		proxy: {
 			'**': {
-				bypass(req) {
-					if (!req.headers.accept.includes('application/json')) {
-						console.log('do NOT proxy');
-						return req.url;
-					}
-					console.log('do proxy');
+				bypass({ headers, url }) {
+					if (!headers.accept.includes('application/json')) return url;
 				},
-				target: `http://localhost:${yargs.proxyPort}`,
+				target: yargs.proxyTarget,
 			},
 		},
 	},
-	entry: './app',
 }
