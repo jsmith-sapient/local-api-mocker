@@ -10,7 +10,7 @@ module.exports = {
 				bypass(req) {
 					if (!req.headers.accept.includes('application/json')) {
 						console.log('do NOT proxy');
-						return false;
+						return req.url;
 					}
 					console.log('do proxy');
 				},
