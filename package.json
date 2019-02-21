@@ -1,19 +1,22 @@
 {
   "name": "mock-api-test",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev:http": "http-server ./app -d false -p 3000 -P http://localhost:3001",
+    "start:dev:http": "webpack-dev-server --content-base ./app --port 3000 --proxy-port 3001",
     "start:dev:mock-api": "canned -p 3001 ./app",
-    "start:dev": "concurrently \"npm:start:dev:*\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "concurrently \"npm:start:dev:*\""
   },
   "author": "",
-  "license": "ISC",
   "devDependencies": {
     "canned": "^0.3.12",
     "concurrently": "^4.1.0",
-    "http-server": "^0.11.1"
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.0",
+    "yargs": "^13.2.1"
+  },
+  "dependencies": {
+    "webpack": "^4.29.5"
   }
 }
