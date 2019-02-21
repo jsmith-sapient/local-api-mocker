@@ -7,9 +7,7 @@ module.exports = {
 	devServer: {
 		proxy: {
 			'**': {
-				bypass({ headers, url }) {
-					if (!headers.accept.includes('application/json')) return url;
-				},
+				bypass: ({ headers, url }) => !headers.accept.includes('application/json') && url,
 				target: yargs.proxyTarget,
 			},
 		},
